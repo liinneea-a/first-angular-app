@@ -9,33 +9,47 @@ import { Item } from '../../models/item';
 export class ItemsComponent implements OnInit {
 
   items:Item[];
+  itemsLeft:Item[];
+  inputItem:string = '';
 
   constructor() {
-    this.items = []
+    this.items = [];
+    this.itemsLeft = [];
    }
 
   ngOnInit(): void {
     this.items = [
-      {
-        content: 'first item',
-        completed: false
-      },
-      {
-        content: 'Second item',
-        completed: false
-      }
+   
     ]
+    
   }
 
   toggleDone(id:number): void {
-    this.items.map((v, i) => {
-      if (i == id) v.completed = !v.completed;
-      return v;
+    this.items.map((itemValue, i) => {
+      if (i == id) itemValue.completed = !itemValue.completed;
+      return itemValue;
     })
+    this.checkItemsLeft();
+  }
+
+  checkItemsLeft() {
+    this.itemsLeft = this.items.filter(item => item.completed == false);
+    console.log(this.itemsLeft.length, this.itemsLeft);
   }
 
   deleteItem(id:number) {
-    this.items = this.items.filter((v, i) => i !== id);
+    this.items = this.items.filter((itemValue, i) => i !== id);
+    this.checkItemsLeft();
+  }
+
+  addItem() {
+    this.items.push( {
+      content: this.inputItem,
+      completed: false
+    });
+
+    this.checkItemsLeft();
+    this.inputItem = '';
   }
 
 }

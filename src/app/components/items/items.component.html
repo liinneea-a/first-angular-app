@@ -1,6 +1,19 @@
 <div class="items">
+    <form (submit)="addItem()">
+        <input type="text"
+                name="item" 
+                placeholder="Vad ska handlas..."
+                class="item-input"
+                [(ngModel)]="inputItem"
+               />
+               <input type="submit" class="btn-submit" value="Lägg till">
+    </form>
     
-
+    <div class="text">
+         <div class="total">Antal artiklar: {{ items.length }}</div>
+         <div class="itemsDone">Antal kvar: {{ itemsLeft.length }} </div>
+    </div>
+   
     <div class="item {{ (
         item.completed ? 'done' : ''
         )
@@ -8,6 +21,6 @@
     *ngFor="let item of items; let i = index;">
         <div class="id">{{ i }}</div>
         <div class="content" (click)="toggleDone(i)">{{ item.content }}</div>
-        <button class="delete">Ta bort</button>
+        <button class="delete" (click)="deleteItem(i)">Ta bort</button>
     </div>
 </div>
