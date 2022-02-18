@@ -1,0 +1,13 @@
+<div class="items">
+    
+
+    <div class="item {{ (
+        item.completed ? 'done' : ''
+        )
+    }}" 
+    *ngFor="let item of items; let i = index;">
+        <div class="id">{{ i }}</div>
+        <div class="content" (click)="toggleDone(i)">{{ item.content }}</div>
+        <button class="delete">Ta bort</button>
+    </div>
+</div>
