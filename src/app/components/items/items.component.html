@@ -20,7 +20,9 @@
     }}" 
     *ngFor="let item of items; let i = index;">
         <div class="id">{{ i }}</div>
+
         <div class="content" (click)="toggleDone(i)">{{ item.content }}</div>
         <button class="delete" (click)="deleteItem(i)">Ta bort</button>
+        
     </div>
 </div>
