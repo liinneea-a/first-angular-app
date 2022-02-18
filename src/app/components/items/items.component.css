@@ -1,3 +1,11 @@
+
+
 .item.done .content {
     text-decoration: line-through;
+}
+
+.item {
+    display: flex;
+    justify-content: space-between;
+    margin: 1rem .5rem;
 }

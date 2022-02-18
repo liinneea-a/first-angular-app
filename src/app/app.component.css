@@ -1,0 +1,16 @@
+
+
+h1 {
+    color: cadetblue;
+    text-align: center;
+}
+
+.app {
+    margin: 5rem 0;
+    border: 5px solid grey;
+    width: 20rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+}
